@@ -36,6 +36,36 @@ export default class JsonToSql {
     });
     return Object.values(result);
   }
+
+  toSqlTable(name: string) {
+    const columns = this.structure()
+      .map((column) => {
+        const { name, type, nullable } = column;
+        const nullability = nullable ? "NULL" : "NOT NULL";
+        return `  ${name} ${this.convertType(type)} ${nullability}`;
+      })
+      .join(",\n");
+
+    return `CREATE TABLE ${name} (
+${columns}
+);`;
+  }
+
+  private convertType(type: string) {
+    if (type === "number") {
+      return "INTEGER";
+    }
+
+    if (type === "string") {
+      return "TEXT";
+    }
+
+    if (type === "object") {
+      return "TEXT";
+    }
+
+    return type.toUpperCase();
+  }
 }
 
 class InvalidParameterError extends Error {
