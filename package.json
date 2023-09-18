@@ -1,0 +1,25 @@
+{
+  "name": "json-to-sql",
+  "version": "0.1.0",
+  "description": "parses json files and outputs sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fivetwentysix/json-to-sql.git"
+  },
+  "author": "Patrick Ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fivetwentysix/json-to-sql/issues"
+  },
+  "homepage": "https://github.com/fivetwentysix/json-to-sql#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  }
+}
