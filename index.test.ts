@@ -6,11 +6,7 @@ test("constructor only accepts an Array", () => {
 
   expect(() => {
     new JsonToSql("foo");
-  }).toThrowError("JsonToSql only accepts an Array");
-
-  expect(() => {
-    new JsonToSql({});
-  }).toThrowError("JsonToSql only accepts an Array");
+  }).toThrowError("JsonToSql only accepts an Array or Object");
 });
 
 test("#structure() returns a Record describing the data", () => {
@@ -43,3 +39,12 @@ test("#toSqlTable() returns a CREATE TABLE statement", () => {
 );`;
   expect(subject.toSqlTable("users")).toEqual(expectation);
 });
+
+test("constructor can accept an object", () => {
+  const subject = new JsonToSql({
+    id: 1,
+    key: "a",
+  })
+
+  expect(subject.data).toEqual([{ id: 1, key: "a" }])
+})

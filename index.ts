@@ -3,7 +3,13 @@ export default class JsonToSql {
   constructor(data: any) {
     this.data = data;
     if (!Array.isArray(data)) {
-      throw new InvalidParameterError("JsonToSql only accepts an Array");
+      if (typeof data === "object") {
+        this.data = [data];
+      } else {
+        throw new InvalidParameterError(
+          "JsonToSql only accepts an Array or Object"
+        );
+      }
     }
   }
 
