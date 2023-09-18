@@ -12,3 +12,20 @@ test('constructor only accepts an Array', () => {
     new JsonToSql({})
   }).toThrowError('JsonToSql only accepts an Array')
 })
+
+test('#structure() returns a Record describing the data', () => {
+  const subject = new JsonToSql([
+    { id: 1, key: 'a', name: 'foo' },
+    { id: 2, key: 'b', name: null },
+    { id: 3, key: 'c', name: null, address: 'bar' },
+    { id: 4, key: 'd', example: true }
+  ])
+
+  expect(subject.structure()).toEqual([
+    { name: 'id', type: 'number', nullable: false },
+    { name: 'key', type: 'string', nullable: false },
+    { name: 'name', type: 'string', nullable: true },
+    { name: 'address', type: 'string', nullable: true },
+    { name: 'example', type: 'boolean', nullable: true },
+  ])
+})
