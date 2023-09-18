@@ -52,6 +52,9 @@ ${columns}
         if (type === "string") {
             return "TEXT";
         }
+        if (type === "object") {
+            return "TEXT";
+        }
         return type.toUpperCase();
     }
 }
