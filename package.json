@@ -1,6 +1,6 @@
 {
-  "name": "json-to-sql",
-  "version": "0.1.0",
+  "name": "make-sql-table",
+  "version": "0.1.1",
   "description": "parses json files and outputs sql",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,9 @@
     "typescript": "^5.2.2"
   },
   "bin": {
-    "json-to-sql": "./cli.js"
+    "make-sql-table": "./cli.js"
+  },
+  "dependencies": {
+    "make-sql-table": "^0.1.1"
   }
 }

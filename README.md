@@ -1,13 +1,13 @@
-# json-to-sql
+# make-sql-table
 
 ## Installation
 
 ```
-npm i -G json-to-sql
+npm i -G make-sql-table
 ```
 
 ## Usage
 
 ```
-json-to-sql table_name path/to/file.json
+make-sql-table table_name path/to/file.json
 ```
