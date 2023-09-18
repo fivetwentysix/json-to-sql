@@ -6,7 +6,7 @@ const tableName = args[0];
 const filePath = args[1];
 
 if (!tableName || !filePath) {
-  console.error("Usage: json-to-sql <tableName> <filePath>");
+  console.error("Usage: make-sql-table <tableName> <filePath>");
   process.exit(1);
 }
 
